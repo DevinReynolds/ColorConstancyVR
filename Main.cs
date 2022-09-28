@@ -212,10 +212,10 @@ public class Main : MonoBehaviour
             // digit image number. EX: 1 -> 001  EX: 10 -> 010
             switch (comparisonImageOrderTemp[i].Length)
             {
-                case < 2:
+                case var _ when comparisonImageOrderTemp[i].Length < 2:
                     comparisonImageOrder_ImageNumber[i / 2] = "00" + comparisonImageOrderTemp[i];
                     break;
-                case < 3:
+                case var _ when comparisonImageOrderTemp[i].Length < 3:
                     comparisonImageOrder_ImageNumber[i / 2] = "0" + comparisonImageOrderTemp[i];
                     break;
                 default:
@@ -232,10 +232,10 @@ public class Main : MonoBehaviour
             // digit image number. EX: 1 -> 001  EX: 10 -> 010
             switch (standardImageOrderTemp[i].Length)
             {
-                case < 2:
+                case var _ when comparisonImageOrderTemp[i].Length < 2:
                     standardImageOrderNumber[i] = "00" + standardImageOrderTemp[i];
                     break;
-                case < 3:
+                case var _ when comparisonImageOrderTemp[i].Length < 3:
                     standardImageOrderNumber[i] = "0" + standardImageOrderTemp[i];
                     break;
                 default:
