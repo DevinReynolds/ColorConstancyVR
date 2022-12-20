@@ -1,6 +1,6 @@
 # ColorConstancyVR
 
-Experment to study the effect of variation in target object extrinsic properties of a visual scene on lightness discrimination thresholds. This repository deals with displaying the computer rendered images and collecting subject response. The code used to render the images can be found [here](https://github.com/BrainardLab/VirtualWorldColorConstancy). This is a virtual reality representation of a similar flat monitor experiment found [here](https://github.com/BrainardLab/VirtualWorldPsychophysics).
+Experment to study the effect of variation in target object extrinsic properties of a visual scene on lightness discrimination thresholds. This project utilizes Unity's editor to display [rendered](https://github.com/BrainardLab/VirtualWorldColorConstancy) stereo-pair images of a naturalistic scene containing an achromatic sphere. Sets of stereo-pair images are displayed to a human subject and the subject reports which image contains the lighter sphere. This is a virtual reality implementation of a similar [monitor experiment](https://github.com/BrainardLab/VirtualWorldPsychophysics).
 
 ## Links
 
@@ -8,7 +8,4 @@ Experment to study the effect of variation in target object extrinsic properties
 
 [Installation](/Documentation/Installation.md)
 
-Headset Connection
-
-## Usage
-
+[Usage](/Documentation/Usage.md)
