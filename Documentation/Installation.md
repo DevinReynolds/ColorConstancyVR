@@ -1,6 +1,8 @@
 # Installation 
 
-## Manual Installation
+1. Install Unity (https://unity.com)
+2. See Project Set-Up
+3. See Scene Set-Up
 
 ### Project Set-Up
 
