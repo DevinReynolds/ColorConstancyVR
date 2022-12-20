@@ -17,8 +17,6 @@
 5. In the Resources folder:
 	* Add "Black.png", "Green.png" and "Red.png"
 	* Create folder called conditions
-		* Add folders for each condition
-			* Add images to these folders
 6. Create three materials in the Materials folder named: "leftMat", "rightMat", and "dotMat"
 	* For each: change shader to Unlit>Texture
 	* For leftMat and rightMat: select texture as "Black.png" from the Assets>Resources folder
