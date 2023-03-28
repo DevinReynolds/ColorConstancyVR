@@ -1,4 +1,4 @@
-![alt text]([http://url/to/img.png](https://github.com/DevinReynolds/ColorConstancyVR/blob/main/Documentation/SampleXML.png?raw=true)
+![alt text](https://github.com/DevinReynolds/ColorConstancyVR/blob/main/Documentation/SampleXML.png?raw=true)
 
 Subject selection is collected using two inputs: FirstImageSelectionButton and SecondImageSelectionButton. 
 The inputs can be changed within the main.cs file. The defaults for these inputs are the space-bar and enter respectively. 
