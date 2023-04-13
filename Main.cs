@@ -45,13 +45,13 @@ public class Main : MonoBehaviour
         {
             // Finds the comparison image
             // Finds the textures for the left and right images
-            leftTex = (Texture2D)Resources.Load("Conditions/" + condition + "/luminance-0_" + comparisonImageOrder_LightnessName[iteration] + "-reflectance-" + comparisonImageOrder_ImageNumber[iteration] + "-BigBall-Library", typeof(Texture2D));
-            rightTex = (Texture2D)Resources.Load("Conditions/" + condition + "/luminance-0_" + comparisonImageOrder_LightnessName[iteration] + "-reflectance-" + comparisonImageOrder_ImageNumber[iteration] + "-BigBall-Library_camera2", typeof(Texture2D));
+            leftTex = (Texture2D)Resources.Load("Conditions/" + condition + "/luminance-0_" + comparisonImageOrder_LightnessName[iteration - 1] + "-reflectance-" + comparisonImageOrder_ImageNumber[iteration] + "-BigBall-Library", typeof(Texture2D));
+            rightTex = (Texture2D)Resources.Load("Conditions/" + condition + "/luminance-0_" + comparisonImageOrder_LightnessName[iteration - 1] + "-reflectance-" + comparisonImageOrder_ImageNumber[iteration] + "-BigBall-Library_camera2", typeof(Texture2D));
             j--;
             ranOrder = 1;
         } // else
 
-        yield return new WaitForSecondsRealtime(.05f);
+        yield return new WaitForSecondsRealtime(.15f);
 
         GameObject dot = GameObject.FindGameObjectWithTag("Dot");
         dot.GetComponent<MeshRenderer>().enabled = false;        
@@ -64,9 +64,9 @@ public class Main : MonoBehaviour
         GameObject rightEyeImageDisp = GameObject.FindGameObjectWithTag("RightEyeImage");
         rightEyeImageDisp.gameObject.GetComponent<Renderer>().material.mainTexture = rightTex;
 
-        yield return new WaitForSecondsRealtime(.05f);
+        yield return new WaitForSecondsRealtime(.15f);
 
-        dot.GetComponent<MeshRenderer>().enabled = true;
+        dot.GetComponent<MeshRenderer>().enabled = false;
 
         // Finds a black texture and applies it to the left and right game objects
         Texture2D blackTex;
@@ -79,7 +79,7 @@ public class Main : MonoBehaviour
         // for the user input.
         if (j == 1)
         {
-            yield return new WaitForSecondsRealtime(.05f);
+            yield return new WaitForSecondsRealtime(.15f);
             StartCoroutine(DispImage(ranOrder, j));
         } // if
         else
@@ -101,7 +101,7 @@ public class Main : MonoBehaviour
         // Sets the dot to red
         dot.gameObject.GetComponent<Renderer>().material.mainTexture = redTex;
 
-        yield return new WaitForSecondsRealtime(10f);
+        yield return new WaitForSecondsRealtime(5f);
         waitAfterBreakForInput = true;
        
         // Sets the dot to green
@@ -117,8 +117,10 @@ public class Main : MonoBehaviour
         {
 
             // Returns true if the button is pressed
-            bool FirstImageChosen = Input.GetButtonDown("Fire2");
-            bool secondImageChosen = Input.GetButtonDown("Jump");
+            //bool FirstImageChosen = Input.GetButtonDown("Fire2");
+            bool FirstImageChosen = Input.GetButtonDown("Jump");
+            //bool secondImageChosen = Input.GetButtonDown("Jump");
+            bool secondImageChosen = Input.GetButtonDown("Submit");
 
             if (secondImageChosen | FirstImageChosen)
             {
@@ -136,7 +138,8 @@ public class Main : MonoBehaviour
 
                 if (iteration != 0)
                 {
-                    if ((userInput[iteration] == comparisonImageOrderDisplayed[iteration - 1]) && (Int32.Parse(comparisonImageOrder_LightnessName[iteration]) > 4000)) // Plays correct sound if the comparison image is chosen and is lighter than 0.4000
+                    if (((userInput[iteration] == comparisonImageOrderDisplayed[iteration - 1]) && (Int32.Parse(comparisonImageOrder_LightnessName[iteration - 1]) > 4000)) 
+                        || ((userInput[iteration] != comparisonImageOrderDisplayed[iteration - 1]) && (Int32.Parse(comparisonImageOrder_LightnessName[iteration - 1]) < 4000))) // Plays correct sound if the comparison image is chosen and is lighter than 0.4000
                     {
                         GameObject CorrectSoundObject = GameObject.FindGameObjectWithTag("CorrectSound");
                         audioData = CorrectSoundObject.GetComponent<AudioSource>();
@@ -158,8 +161,8 @@ public class Main : MonoBehaviour
         if (waitAfterBreakForInput)
         {
             // Returns true if the button is pressed
-            bool FirstImageChosen = Input.GetButtonDown("Fire2");
-            bool secondImageChosen = Input.GetButtonDown("Jump");
+            bool FirstImageChosen = Input.GetButtonDown("Jump");
+            bool secondImageChosen = Input.GetButtonDown("Submit");
 
             // Continues when a button is pressed
             if (secondImageChosen | FirstImageChosen)
@@ -212,10 +215,10 @@ public class Main : MonoBehaviour
             // digit image number. EX: 1 -> 001  EX: 10 -> 010
             switch (comparisonImageOrderTemp[i].Length)
             {
-                case var _ when comparisonImageOrderTemp[i].Length < 2:
+                case 1:
                     comparisonImageOrder_ImageNumber[i / 2] = "00" + comparisonImageOrderTemp[i];
                     break;
-                case var _ when comparisonImageOrderTemp[i].Length < 3:
+                case 2:
                     comparisonImageOrder_ImageNumber[i / 2] = "0" + comparisonImageOrderTemp[i];
                     break;
                 default:
@@ -232,10 +235,10 @@ public class Main : MonoBehaviour
             // digit image number. EX: 1 -> 001  EX: 10 -> 010
             switch (standardImageOrderTemp[i].Length)
             {
-                case var _ when comparisonImageOrderTemp[i].Length < 2:
+                case 1:
                     standardImageOrderNumber[i] = "00" + standardImageOrderTemp[i];
                     break;
-                case var _ when comparisonImageOrderTemp[i].Length < 3:
+                case 2:
                     standardImageOrderNumber[i] = "0" + standardImageOrderTemp[i];
                     break;
                 default:
@@ -297,10 +300,19 @@ public class Main : MonoBehaviour
             // Saves the data.
             for (int i = 0; i < (numberOfConditions * numberOfTimesEachConditionIsRan); i++)
             {
-                // Finds the first child node that is empty and saves the subjects selections.
+                // Finds the first child node that is empty
                 if (ComparisonImageChosen.ChildNodes[i].InnerText == "")
                 {
-                    ComparisonImageChosen.ChildNodes[i].InnerText = wasTheComparisonImageChosenString;
+                    // Saves the subjects selections to the first empty node
+                    XmlNode ComparisonImageChosenCondition = ComparisonImageChosen.ChildNodes[i];
+                    ComparisonImageChosenCondition.InnerText = wasTheComparisonImageChosenString;
+
+                    // Appends the date and time to the subjects selection
+                    XmlElement dateTime = doc.CreateElement("Date-Time");
+                    ComparisonImageChosenCondition.AppendChild(dateTime);
+                    DateTime today = DateTime.Now;
+                    dateTime.InnerText = today.ToString();
+
                     break;
                 } // if
             } // for
