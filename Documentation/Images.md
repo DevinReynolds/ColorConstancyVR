@@ -8,4 +8,5 @@ UnityProject\Assets\Resources\Conditions where conditions is populated with fold
 To change this, modify lines 39, 40, 48, and 49 of Main.cs. 
 
 ![alt text](https://github.com/DevinReynolds/ColorConstancyVR/blob/main/Documentation/ImportEx1.png?raw=true)
-![alt text](https://github.com/DevinReynolds/ColorConstancyVR/blob/main/Documentation/ImportEx2.png?raw=true)
+
+![alt text](https://github.com/DevinReynolds/ColorConstancyVR/blob/main/Documentation/ImportEx2.PNG?raw=true)
