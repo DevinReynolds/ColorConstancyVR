@@ -9,3 +9,5 @@ Experment to study the effect of variation in target object extrinsic properties
 [Installation](/Documentation/Installation.md)
 
 [Usage](/Documentation/Usage.md)
+
+[Data Collection](/Documentation/Data.md)
