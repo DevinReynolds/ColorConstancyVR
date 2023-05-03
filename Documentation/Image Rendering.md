@@ -18,5 +18,3 @@ These two images are rendered at two camera positions that are 63mm apart to rep
 
 To present these multispectral stereoscopic images, they are first converted to PNG images. The PNG images can then be displayed using 
 virtual reality. 
-
-Also see: https://github.com/BrainardLab/VirtualWorldColorConstancy
