@@ -14,7 +14,7 @@ D65 is normalized by its mean to get the shape of the spectra. The normalized D6
 
 The object reflectance spectra and the light source illumination spectra, acquired from above, are applied to the objects and the light source in the scene. Then 
 a stereoscopic pair of 2D multispectral images of the scene are rendered using the Mitsuba renderer at 31 wavelengths linearly spaced between 400 nm and 700 nm. 
-These two images are rendered at two camera positions that are 63mm apart to represent the average interpupillary distance (Figure 1).
+These two images are rendered at two camera positions that are 63mm apart to represent the average interpupillary distance.
 
 To present these multispectral stereoscopic images, they are first converted to PNG images. The PNG images can then be displayed using 
 virtual reality. 
