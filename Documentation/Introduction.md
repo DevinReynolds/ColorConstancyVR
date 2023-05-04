@@ -1,7 +1,8 @@
 # Introduction
 The human visual system provides a relatively constant representation of the color of an object despite changes in properties that are irrelevant to the object 
 (Brainard, 2009). However, this constancy is not always preserved (Brainard, 2009). Understanding and quantifying the visual system’s ability to retain this 
-constancy despite variation in object irrelevant properties is a goal of vision science. In previous works, human observers viewed rendered images of a monochromatic 
+constancy despite variation in object irrelevant properties is a goal of vision science. In 
+[previous works](https://github.com/BrainardLab/VirtualWorldPsychophysics), human observers viewed rendered images of a monochromatic 
 sphere within a three-dimensional (3D) scene containing naturalistic background objects and reported the image that contained the lighter sphere. These images were 
 displayed to observers as two-dimensional (2D) images on a color calibrated monitor. This, however, is not representative of natural human vision. In this work, virtual 
 reality (VR) and Unity are used to view the rendered images under more naturalistic conditions. 
