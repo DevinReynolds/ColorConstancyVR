@@ -10,7 +10,7 @@ The human visual system provides a relatively constant representation of the col
 
 [Unity](/Documentation/Unity.md)
 
-[Lightness Discrimination Task](Documentation/Lightness%20Discrimination%20Task.md)
+[Lightness Discrimination Task](/Documentation/Lightness%20Discrimination%20Task.md)
 
 ## Acknowledgments
 Chibuike Okekeogbu, Joel Oluyole, and Jonathan Rinaldi helped in the beginning in designing the VR set-up.
