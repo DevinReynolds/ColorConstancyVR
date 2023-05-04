@@ -35,4 +35,4 @@ displayed to their corresponding eyes to give an accurate perception of distance
 
 [Unity](/Documentation/Unity.md)
 
-[Lightness Discrimination Task](Documentation/Lightness%20Discrimination%20Task.md)
+[Lightness Discrimination Task](/Documentation/Lightness%20Discrimination%20Task.md)
